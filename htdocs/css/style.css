@@ -1,0 +1,217 @@
+/**
+* General setup for layout.
+*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+html {
+    overflow-y: scroll;
+    background-color: #424242;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+    word-wrap: break-word;
+    font-family: 'Roboto Mono', monospace;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+}
+
+.figure {
+    margin: 0;
+    padding: 0;
+}
+
+.outer-wrap {
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.inner-wrap {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0 0.5em;
+}
+
+
+/**
+* Header
+*/
+.outer-wrap-header {
+    max-width: 100%;
+    min-height: 1em;
+    background-color: #000;
+    color: #fff;
+    padding: 1em;
+}
+
+.outer-wrap-header {
+    position: relative;
+}
+
+.inner-wrap-header {
+    max-width: 100%;
+}
+
+.header-logo {
+    position: absolute;
+    top: 7em;
+    left: 1em;
+}
+
+.header {
+    vertical-align: center;
+}
+
+
+/**
+* Navbar
+*/
+.outer-wrap-navbar {
+    max-width: 100%;
+    min-height: 1em;
+    background-color: #1565c0;
+    color: #fff;
+    padding: 0;
+}
+
+.outer-wrap-navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+}
+
+.outer-wrap-navbar a:hover {
+    color: #ddd;
+}
+
+.rm-navbar li {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #1565c0;
+}
+
+i.fa {
+    padding-left: 6rem;
+    padding-right: 1rem;
+}
+
+
+
+/**
+* Main
+*/
+.outer-wrap-main {
+    min-height: 40em;
+    margin-bottom: 4em;
+}
+
+.region-main h1 {
+    border-bottom: 1px solid #999;
+}
+
+.region-main h2 {
+    border-bottom: 1px solid #ccc;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+/**
+* IP validator
+*/
+.ipvalidator-form input[type="text"] {
+    width: 80%;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+.ipvalidator-form input[type="submit"] {
+    display: block;
+    margin-top: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.code {
+    padding: 0 0.5rem;
+    background-color: #eee;
+}
+
+/**
+* IP Geolocation
+*/
+.error {
+    color: red;
+}
+
+/**
+* Forecast
+*/
+.forecast-form input[type="text"] {
+    width: 40%;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+.forecast-form input[type="submit"] {
+    margin-top: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.forecast-now {
+    background-color: #ccc;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+}
+
+.forecast-day {
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+}
+
+/**
+* Book
+*/
+td {
+    padding: 0.5rem 1rem;
+}
+
+
+
+/**
+* Footer
+*/
+.outer-wrap-footer {
+    max-width: 100%;
+    min-height: 6em;
+    background-color: #424242;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+
+
+/**
+* Responsive
+*/
+@media screen and (max-width: 970px) {
+    .header-logo {
+        display: none;
+    }
+}
