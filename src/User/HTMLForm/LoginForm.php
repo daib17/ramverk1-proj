@@ -12,7 +12,7 @@ use daib17\User\User;
 class LoginForm extends FormModel
 {
     /**
-    * @var $acronym user's acronym
+    * @var $acronym user's $acronym
     */
     private $acronym;
 
@@ -76,7 +76,9 @@ class LoginForm extends FormModel
             return false;
         }
 
+        // Get user id
         $this->acronym = $acronym;
+
         return true;
     }
 

@@ -8,11 +8,6 @@ namespace Anax\View;
 $session = $this->di->get("session");
 
 
-// $session->set("user", "daib17");
-
-
-
-// var_dump($session->get("user"));
 
 ?>
 

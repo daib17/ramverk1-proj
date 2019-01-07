@@ -73,7 +73,6 @@ class RegisterForm extends FormModel
         $email = $this->form->value("email");
         $password = $this->form->value("password");
         $passwordRepeat = $this->form->value("password-repeat");
-        $gravatar = $this->form->value("gravatar");
 
         // Name at least 4 characters
         if (strlen($name) < 4) {

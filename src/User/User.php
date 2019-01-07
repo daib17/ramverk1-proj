@@ -61,7 +61,8 @@ class User extends ActiveRecordModel
     /**
     * Generate gravatar.
     */
-    public function setGravatar() {
+    public function setGravatar()
+    {
         $hash = md5(strtolower(trim($this->email)));
         $this->gravatar = "https://www.gravatar.com/avatar/" . $hash . "?d=retro";
     }
@@ -70,19 +71,34 @@ class User extends ActiveRecordModel
     /**
     * Generate acronym with first 4 characters from name + index.
     */
-    public function setAcronym() {
+    public function setAcronym()
+    {
         $i = 1;
         $base = strtolower(substr($this->name, 0, 4));
         $acronym = $base . $i;
-        $res = $this->find("acronym", $acronym);
-        if ($res) {
+        $res = $this->findAllWhere("acronym = ?", $acronym);
+        if (count($res) > 0) {
             do {
                 $i++;
                 $acronym = $base . $i;
                 // Check availability
-                $res = $this->find("acronym", $acronym);
-            } while ($res);
+                $res = $this->findAllWhere("acronym = ?", $acronym);
+            } while (count($res) > 0);
         }
         $this->acronym = $acronym;
+    }
+
+
+    /**
+    * Get user Id.
+    *
+    * @param string $acronym  user's acronym.
+    *
+    * @return int user's id.
+    */
+    public function getId($acronym)
+    {
+        $this->find("acronym", $acronym);
+        return $this->id;
     }
 }

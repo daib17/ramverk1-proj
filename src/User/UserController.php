@@ -4,8 +4,10 @@ namespace daib17\User;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
+use daib17\User\User;
 use daib17\User\HTMLForm\LoginForm;
 use daib17\User\HTMLForm\RegisterForm;
+use daib17\User\HTMLForm\UpdateForm;
 
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
@@ -33,25 +35,25 @@ class UserController implements ContainerInjectableInterface
     }
 
 
-    // /**
-    //  * Show all items.
-    //  *
-    //  * @return object as a response object
-    //  */
-    // public function indexActionGet() : object
-    // {
-    //     $page = $this->di->get("page");
-    //     $book = new Book();
-    //     $book->setDb($this->di->get("dbqb"));
-    //
-    //     $page->add("book/crud/view-all", [
-    //         "items" => $book->findAll(),
-    //     ]);
-    //
-    //     return $page->render([
-    //         "title" => "A collection of items",
-    //     ]);
-    // }
+    /**
+    * Show all items.
+    *
+    * @return object as a response object
+    */
+    public function listActionGet() : object
+    {
+        $page = $this->di->get("page");
+        $user = new User();
+        $user->setDb($this->di->get("dbqb"));
+
+        $page->add("daib17/allusers", [
+            "items" => $user->findAll(),
+        ]);
+
+        return $page->render([
+            "title" => "A list of users",
+        ]);
+    }
 
 
     /**
@@ -79,11 +81,20 @@ class UserController implements ContainerInjectableInterface
     /**
     * Login successful.
     *
+    * @param string $acronym user's acronym
+    *
     * @return object as a response object
     */
     public function loginOkAction($acronym) : object
     {
-        $this->session->set("user", $acronym);
+        // Get user's id
+        $user = new User();
+        $user->setDb($this->di->get("dbqb"));
+        $id = $user->getId($acronym);
+
+        // Set session variables
+        $this->session->set("userId", $id);
+        $this->session->set("acronym", $acronym);
 
         $page = $this->di->get("page");
 
@@ -106,29 +117,13 @@ class UserController implements ContainerInjectableInterface
     {
         $page = $this->di->get("page");
 
-        $this->session->delete("user");
+        $this->session->delete("userId");
+        $this->session->delete("acronym");
 
         $page->add("daib17/logout", []);
 
         return $page->render([
             "title" => "Log out",
-        ]);
-    }
-
-
-    /**
-    * Show user list.
-    *
-    * @return object as a response object
-    */
-    public function listActionGet() : object
-    {
-        $page = $this->di->get("page");
-
-        $page->add("daib17/allusers", []);
-
-        return $page->render([
-            "title" => "All users",
         ]);
     }
 
@@ -169,6 +164,29 @@ class UserController implements ContainerInjectableInterface
 
         return $page->render([
             "title" => "Registration result",
+        ]);
+    }
+
+
+    /**
+    * Update user account.
+    *
+    * @param int $id the id to update.
+    *
+    * @return object as a response object
+    */
+    public function updateAction($id) : object
+    {
+        $page = $this->di->get("page");
+        $form = new UpdateForm($this->di, $id);
+        $form->check();
+
+        $page->add("daib17/update", [
+            "form" => $form->getHTML(),
+        ]);
+
+        return $page->render([
+            "title" => "Update user account",
         ]);
     }
 }
