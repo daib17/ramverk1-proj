@@ -46,7 +46,7 @@ class UserController implements ContainerInjectableInterface
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
 
-        $page->add("daib17/allusers", [
+        $page->add("daib17/user/allusers", [
             "items" => $user->findAll(),
         ]);
 
@@ -68,7 +68,7 @@ class UserController implements ContainerInjectableInterface
         $form = new LoginForm($this->di);
         $form->check();
 
-        $page->add("daib17/login", [
+        $page->add("daib17/user/login", [
             "form" => $form->getHTML(),
         ]);
 
@@ -98,7 +98,7 @@ class UserController implements ContainerInjectableInterface
 
         $page = $this->di->get("page");
 
-        $page->add("daib17/login_ok", [
+        $page->add("daib17/user/login_ok", [
             "acronym" => $acronym
         ]);
 
@@ -120,7 +120,7 @@ class UserController implements ContainerInjectableInterface
         $this->session->delete("userId");
         $this->session->delete("acronym");
 
-        $page->add("daib17/logout", []);
+        $page->add("daib17/user/logout", []);
 
         return $page->render([
             "title" => "Log out",
@@ -139,7 +139,7 @@ class UserController implements ContainerInjectableInterface
         $form = new RegisterForm($this->di);
         $form->check();
 
-        $page->add("daib17/register", [
+        $page->add("daib17/user/register", [
             "form" => $form->getHTML(),
         ]);
 
@@ -158,7 +158,7 @@ class UserController implements ContainerInjectableInterface
     {
         $page = $this->di->get("page");
 
-        $page->add("daib17/registration_ok", [
+        $page->add("daib17/user/registration_ok", [
             "acronym" => $acronym
         ]);
 
@@ -181,7 +181,7 @@ class UserController implements ContainerInjectableInterface
         $form = new UpdateForm($this->di, $id);
         $form->check();
 
-        $page->add("daib17/update", [
+        $page->add("daib17/user/update", [
             "form" => $form->getHTML(),
         ]);
 

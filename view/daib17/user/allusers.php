@@ -23,8 +23,8 @@ $items = isset($items) ? $items : null;
         <th>Acronym</th>
         <th>Name</th>
         <th>Email</th>
-        <th>Gravatar</th>
         <th>Created</th>
+        <th>Gravatar</th>
     </tr>
     <?php foreach ($items as $item) : ?>
         <tr>

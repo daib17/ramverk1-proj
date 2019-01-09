@@ -40,8 +40,12 @@ class TagsController implements ContainerInjectableInterface
     public function indexActionGet() : object
     {
         $page = $this->di->get("page");
+        $tag = new Tag();
+        $tag->setDb($this->di->get("dbqb"));
 
-        $page->add("daib17/tags", []);
+        $page->add("daib17/tags", [
+            "items" => $tag->getAll()
+        ]);
 
         return $page->render([
             "title" => "Tags",

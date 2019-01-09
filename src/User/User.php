@@ -19,6 +19,12 @@ class User extends ActiveRecordModel
     * Columns in the table.
     *
     * @var integer $id primary key auto incremented.
+    * @var string $acronym acronym.
+    * @var string $name name.
+    * @var string $email email.
+    * @var string $password password.
+    * @var string $gravatar gravatar image.
+    * @var string $created date of creation.
     */
     public $id;
     public $acronym;
@@ -101,4 +107,17 @@ class User extends ActiveRecordModel
         $this->find("acronym", $acronym);
         return $this->id;
     }
+
+
+    /**
+    * Get acronym by user id
+    *
+    * @return string acronym
+    */
+    // public function getAcronymById($id)
+    // {
+    //     $res = $this->findAllWhere("id = ?", $id);
+    //     return (count($res) > 0) ? $res[0]->acronym : "";
+    // }
+
 }
