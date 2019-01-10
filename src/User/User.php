@@ -120,5 +120,4 @@ class User extends ActiveRecordModel
         $res = $this->findAllWhere("id = ?", $id);
         return (count($res) > 0) ? $res[0]->acronym : "";
     }
-
 }

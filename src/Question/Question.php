@@ -42,7 +42,8 @@ class Question extends ActiveRecordModel
     *
     * @return User
     */
-    public function getUser() {
+    public function getUser()
+    {
         $user = new User();
         $user->setDb($this->db);
         $user->find("id", $this->userid);
@@ -68,7 +69,8 @@ class Question extends ActiveRecordModel
     *
     * @return Answer array
     */
-    public function getAnswers() {
+    public function getAnswers()
+    {
         $answer = new Answer();
         $answer->setDb($this->db);
         return $answer->findAllWhere("questionid = ?", $this->id);

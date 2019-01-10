@@ -6,7 +6,6 @@ use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
 use daib17\Answer\HTMLForm\AddAnswerForm;
 
-
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
 // use Anax\Route\Exception\InternalErrorException;
@@ -33,12 +32,13 @@ class AnswerController implements ContainerInjectableInterface
         $this->session = $this->di->get("session");
         $this->response = $this->di->get("response");
     }
-    
+
 
     /**
     * Handler to create answer
     */
-    public function addAction($questionid) {
+    public function addAction($questionid)
+    {
         // Check if user logged in
         if (!$this->session->get("userid")) {
             $this->response->redirect("")->send();

@@ -41,7 +41,7 @@ $questionArr = $question->findAllWhere("userid = ?", $user->id);
             <th>Date</th>
         </tr>
         <?php if (count($questionArr) > 0) : ?>
-            <?php foreach($questionArr as $q) :?>
+            <?php foreach ($questionArr as $q) :?>
                 <tr>
                     <td><a href="<?= url("question/read/$q->id") ?>"><?= $q->title ?></a></td>
                     <td class="table-date"><?= $q->created ?></td>
@@ -58,7 +58,7 @@ $questionArr = $question->findAllWhere("userid = ?", $user->id);
             <th>Date</th>
         </tr>
         <?php if (count($answers) > 0) : ?>
-            <?php foreach($answers as $ans) :?>
+            <?php foreach ($answers as $ans) :?>
                 <tr>
                     <td><a href="<?= url("question/read/$ans->questionid") ?>"><?= $question->getQuestionById($ans->questionid)->title ?></a></td>
                     <td class="table-date"><?= $ans->created ?></td>

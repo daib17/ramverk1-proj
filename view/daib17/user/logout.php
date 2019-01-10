@@ -10,5 +10,6 @@ $session = $this->di->get("session");
 
 
 ?>
+<h1>Log out</h1>
 
-Log out page
+<p>User <b><?= $acronym ?></b> has sucessfully logged out.</p>

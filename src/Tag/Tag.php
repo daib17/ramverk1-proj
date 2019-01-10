@@ -51,5 +51,4 @@ class Tag extends ActiveRecordModel
 
         return $tagArr;
     }
-
 }

@@ -3,8 +3,8 @@
 namespace Anax\View;
 
 /**
- * Render a block with its content.
- */
+* Render a block with its content.
+*/
 
 // Show incoming variables and view helper functions
 //echo showEnvironment(get_defined_vars(), get_defined_functions());

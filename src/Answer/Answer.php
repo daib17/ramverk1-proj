@@ -38,7 +38,8 @@ class Answer extends ActiveRecordModel
     *
     * @return User
     */
-    public function getUser() {
+    public function getUser()
+    {
         $user = new User();
         $user->setDb($this->db);
         $user->find("id", $this->userid);

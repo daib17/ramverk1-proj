@@ -20,12 +20,12 @@ return [
             "lang" => "sv",
             "stylesheets" => [
                 "css/dbwebb-se.min.css",
-                "css/style.css",
-                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                "css/style.css"
             ],
-            // "javascripts" => [
-            //     "js/responsive-menu.js",
-            // ],
+            "javascripts" => [
+            "js/main.js",
+            "https://use.fontawesome.com/e5579368c4.js"
+        ],
         ],
     ],
 

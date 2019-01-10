@@ -3,7 +3,6 @@ namespace Anax\View;
 
 use Anax\TextFilter\TextFilter;
 
-
 /**
 * Render question view.
 */
@@ -25,7 +24,7 @@ $tagArr = $question->getTags();
 
 <!-- Tags -->
 <?php if ($tagArr != null) : ?>
-    <?php foreach($tagArr as $tag) : ?>
+    <?php foreach ($tagArr as $tag) : ?>
         <div class="tag">
             <a href="<?= url("tag") ?>"><?= $tag ?></a>
         </div>

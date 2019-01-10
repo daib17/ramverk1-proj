@@ -7,7 +7,6 @@ use Anax\Commons\ContainerInjectableTrait;
 use daib17\Comment\HTMLForm\AddCommentQuestionForm;
 use daib17\Comment\HTMLForm\AddCommentAnswerForm;
 
-
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
 // use Anax\Route\Exception\InternalErrorException;
@@ -76,7 +75,7 @@ class CommentController implements ContainerInjectableInterface
             $this->response->redirect("")->send();
             exit;
         }
-        
+
         $page = $this->di->get("page");
 
         $session = $this->di->get("session");

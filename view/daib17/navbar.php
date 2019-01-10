@@ -26,7 +26,7 @@ $userid = $session->get("userid");
                 <ul>
                     <li><a href="<?= url("user/update/$userid") ?>" title="Update">Update account</a></li>
 
-                    <li><a href="<?= url("user/logout") ?>" title="Log out">Log out</a></li>
+                    <li><a href="<?= url("user/logout/$acronym") ?>" title="Log out">Log out</a></li>
                 </ul>
             </li>
         <?php else : ?>

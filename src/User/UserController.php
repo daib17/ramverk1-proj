@@ -150,14 +150,16 @@ class UserController implements ContainerInjectableInterface
     *
     * @return object as a response object
     */
-    public function logoutActionGet() : object
+    public function logoutActionGet($acronym) : object
     {
         $page = $this->di->get("page");
 
         $this->session->delete("userid");
         $this->session->delete("acronym");
 
-        $page->add("daib17/user/logout", []);
+        $page->add("daib17/user/logout", [
+            "acronym" => $acronym
+        ]);
 
         return $page->render([
             "title" => "Log out",
