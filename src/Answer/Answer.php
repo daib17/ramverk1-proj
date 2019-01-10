@@ -34,15 +34,15 @@ class Answer extends ActiveRecordModel
 
 
     /**
-    * Get user.
+    * Get user that created this answer.
     *
     * @return User
     */
     public function getUser() {
         $user = new User();
         $user->setDb($this->db);
-        $res =  $user->findAllWhere("id = ?", $this->userid);
-        return (count($res) > 0) ? $res[0] : null;
+        $user->find("id", $this->userid);
+        return $user;
     }
 
 
@@ -57,4 +57,18 @@ class Answer extends ActiveRecordModel
         $comment->setDb($this->db);
         return $comment->findAllWhere("answerid = ?", $this->id);
     }
+
+
+    // /**
+    // * Get questionid for answer with given answerid.
+    // *
+    // * @param int $id answerid
+    // *
+    // * @return int questionid
+    // */
+    // public function getQuestionId($id)
+    // {
+    //     $res = $this->findAllWhere("answerid = ?", $id);
+    //     return (count($res) > 0) ? $res[0]->questionid : "";
+    // }
 }

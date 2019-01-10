@@ -6,6 +6,7 @@ use Anax\DatabaseActiveRecord\ActiveRecordModel;
 use daib17\User\User;
 use daib17\Answer\Answer;
 use daib17\Comment\Comment;
+use daib17\Tag\Tag;
 
 /**
 * A database driven model using the Active Record design pattern.
@@ -37,15 +38,15 @@ class Question extends ActiveRecordModel
 
 
     /**
-    * Get user.
+    * Get user that created this question.
     *
     * @return User
     */
     public function getUser() {
         $user = new User();
         $user->setDb($this->db);
-        $res =  $user->findAllWhere("id = ?", $this->userid);
-        return (count($res) > 0) ? $res[0] : null;
+        $user->find("id", $this->userid);
+        return $user;
     }
 
 
@@ -71,5 +72,33 @@ class Question extends ActiveRecordModel
         $answer = new Answer();
         $answer->setDb($this->db);
         return $answer->findAllWhere("questionid = ?", $this->id);
+    }
+
+
+    /**
+    * Get names of all tags as an array of strings.
+    *
+    * @return array of strings or null if no tags
+    */
+    public function getTags()
+    {
+        if ($this->tags != "") {
+            return explode(",", trim($this->tags));
+        }
+        return null;
+    }
+
+    /**
+    * Get question from given question id
+    *
+    * @param int $id question's
+    *
+    * @return Question object
+    */
+    public function getQuestionById($id)
+    {
+        $res = $this->findAllWhere("id = ?", $id);
+        return (count($res) > 0) ? $res[0] : null;
+
     }
 }

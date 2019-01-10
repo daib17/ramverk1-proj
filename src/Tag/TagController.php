@@ -1,6 +1,6 @@
 <?php
 
-namespace daib17\Tags;
+namespace daib17\Tag;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
@@ -10,9 +10,9 @@ use Anax\Commons\ContainerInjectableTrait;
 // use Anax\Route\Exception\InternalErrorException;
 
 /**
-* Controller for route 'tags'.
+* Controller for route 'tag'.
 */
-class TagsController implements ContainerInjectableInterface
+class TagController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
@@ -43,7 +43,7 @@ class TagsController implements ContainerInjectableInterface
         $tag = new Tag();
         $tag->setDb($this->di->get("dbqb"));
 
-        $page->add("daib17/tags", [
+        $page->add("daib17/tag/view-all", [
             "items" => $tag->getAll()
         ]);
 

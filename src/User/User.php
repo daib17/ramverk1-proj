@@ -32,6 +32,7 @@ class User extends ActiveRecordModel
     public $email;
     public $password;
     public $gravatar;
+    public $posts;
     public $created;
 
 
@@ -114,10 +115,10 @@ class User extends ActiveRecordModel
     *
     * @return string acronym
     */
-    // public function getAcronymById($id)
-    // {
-    //     $res = $this->findAllWhere("id = ?", $id);
-    //     return (count($res) > 0) ? $res[0]->acronym : "";
-    // }
+    public function getAcronymById($id)
+    {
+        $res = $this->findAllWhere("id = ?", $id);
+        return (count($res) > 0) ? $res[0]->acronym : "";
+    }
 
 }

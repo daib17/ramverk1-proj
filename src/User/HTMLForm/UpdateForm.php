@@ -15,6 +15,7 @@ class UpdateForm extends FormModel
     * Constructor injects with DI container.
     *
     * @param Psr\Container\ContainerInterface $di a service container
+    * @param int $id user's id
     */
     public function __construct(ContainerInterface $di, $id)
     {
@@ -23,7 +24,7 @@ class UpdateForm extends FormModel
         $this->form->create(
             [
                 "id" => __CLASS__,
-                "legend" => "Update details",
+                "legend" => "Enter details",
             ],
             [
                 "id" => [

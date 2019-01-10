@@ -4,6 +4,7 @@ namespace daib17\Home;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
+use daib17\Question\Question;
 
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
@@ -16,20 +17,6 @@ class HomeController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
-    /**
-    * @var $session session
-    */
-    private $session;
-
-
-    /**
-    * Initialize variables.
-    */
-    public function initialize() : void
-    {
-        $this->session = $this->di->get("session");
-    }
-
 
     /**
     * Home page.
@@ -40,7 +27,12 @@ class HomeController implements ContainerInjectableInterface
     {
         $page = $this->di->get("page");
 
-        $page->add("daib17/home", []);
+        $question = new Question();
+        $question->setDb($this->di->get("dbqb"));
+
+        $page->add("daib17/home", [
+            "questions" => $question->findAll()
+        ]);
 
         return $page->render([
             "title" => "Home",

@@ -5,6 +5,8 @@ namespace daib17\User;
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
 use daib17\User\User;
+use daib17\Question\Question;
+use daib17\Answer\Answer;
 use daib17\User\HTMLForm\LoginForm;
 use daib17\User\HTMLForm\RegisterForm;
 use daib17\User\HTMLForm\UpdateForm;
@@ -57,6 +59,41 @@ class UserController implements ContainerInjectableInterface
 
 
     /**
+    * Handler show one user.
+    *
+    * @param int $id user's id
+    *
+    * @return object as a response object
+    */
+    public function viewActionGet($id) : object
+    {
+        $page = $this->di->get("page");
+        $user = new User();
+        $user->setDb($this->di->get("dbqb"));
+        $user->find("id", $id);
+
+        // Get questions for user
+        $question = new Question();
+        $question->setDb($this->di->get("dbqb"));
+
+        // Get answers
+        $answer = new Answer();
+        $answer->setDb($this->di->get("dbqb"));
+        $answerArr = $answer->findAllWhere("userid = ?", $id);
+
+        $page->add("daib17/user/view", [
+            "user" => $user,
+            "question" => $question,
+            "answers" => $answerArr
+        ]);
+
+        return $page->render([
+            "title" => "A list of users",
+        ]);
+    }
+
+
+    /**
     * Log in.
     *
     * @return object as a response object
@@ -93,7 +130,7 @@ class UserController implements ContainerInjectableInterface
         $id = $user->getId($acronym);
 
         // Set session variables
-        $this->session->set("userId", $id);
+        $this->session->set("userid", $id);
         $this->session->set("acronym", $acronym);
 
         $page = $this->di->get("page");
@@ -117,7 +154,7 @@ class UserController implements ContainerInjectableInterface
     {
         $page = $this->di->get("page");
 
-        $this->session->delete("userId");
+        $this->session->delete("userid");
         $this->session->delete("acronym");
 
         $page->add("daib17/user/logout", []);

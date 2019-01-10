@@ -6,6 +6,7 @@ namespace Anax\View;
 */
 
 $session = $this->di->get("session");
+$userid = $session->get("userid");
 
 // Gather incoming variables and use default values if not set
 $items = isset($items) ? $items : null;
@@ -14,8 +15,10 @@ $items = isset($items) ? $items : null;
 
 <h1>Question list</h1>
 
-<?php if ($session->get("userId")) : ?>
-    <p><a href="#">Add Question</a></p>
+<?php if ($userid) : ?>
+    <div class="button-div">
+        <a class="green-button left" href="<?= url("question/add/$userid") ?>">Add question</a>
+    </div>
 <?php endif; ?>
 
 <?php if (!$items) : ?>
@@ -27,18 +30,14 @@ $items = isset($items) ? $items : null;
     <tr>
         <th>Id</th>
         <th>Title</th>
-        <th>Body</th>
-        <th>Tags</th>
-        <th>Userid</th>
+        <th>User</th>
         <th>Created</th>
     </tr>
     <?php foreach ($items as $item) : ?>
         <tr>
             <td><?= $item->id ?></td>
             <td><a href=<?= url("question/read/$item->id") ?>><?= $item->title ?></a></td>
-            <td><?= $item->body ?></td>
-            <td><?= $item->tags ?></td>
-            <td><?= $item->userid ?></td>
+            <td><?= $user->getAcronymById($item->userid) ?></td>
             <td><?= $item->created ?></td>
         </tr>
     <?php endforeach; ?>

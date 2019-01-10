@@ -8,7 +8,7 @@ namespace Anax\View;
 $session = $this->di->get("session");
 
 $acronym = $session->get("acronym");
-$userId = $session->get("userId");
+$userid = $session->get("userid");
 
 
 ?>
@@ -17,14 +17,14 @@ $userId = $session->get("userId");
     <ul class="my-navbar rm-default rm-desktop">
         <li><a href="<?= url("") ?>" title="Home">Home</a></li>
         <li><a href="<?= url("question") ?>" title="Questions">Questions</a></li>
-        <li><a href="<?= url("tags") ?>" title="Tags">Tags</a></li>
+        <li><a href="<?= url("tag") ?>" title="Tags">Tags</a></li>
         <li><a href="<?= url("user/list") ?>" title="Show all users">Users</a></li>
         <li><a href="<?= url("about") ?>" title="About">About</a></li>
 
         <?php if ($session->has("acronym")) : ?>
             <li><a class="rm-submenu-button" href=""></a><a href=""><i class="fa fa-user-circle"></i><?= $acronym ?></a>
                 <ul>
-                    <li><a href="<?= url("user/update/$userId") ?>" title="Update">Update account</a></li>
+                    <li><a href="<?= url("user/update/$userid") ?>" title="Update">Update account</a></li>
 
                     <li><a href="<?= url("user/logout") ?>" title="Log out">Log out</a></li>
                 </ul>

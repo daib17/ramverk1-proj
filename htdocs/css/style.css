@@ -2,7 +2,7 @@
 * General setup for layout.
 */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+@import url('https://fonts.googleapis.com/css?family=Anton');
 
 html {
     overflow-y: scroll;
@@ -26,7 +26,18 @@ img {
 
 a {
     text-decoration: none;
+    color: #1e88e5;
 }
+
+a:visited {
+    color: #1e88e5;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+
 
 .wrap-all {
     font-family: 'Montserrat', sans-serif;
@@ -48,15 +59,19 @@ a {
     padding: 0 0.5em;
 }
 
+.clearfix {
+    clear: both;
+}
+
 
 /**
 * Header
 */
 .outer-wrap-header {
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Anton', sans-serif;
     font-size: 1.5rem;
     max-width: 100%;
-    min-height: 3em;
+    min-height: 6rem;
     background-color: #000;
     color: #fff;
 }
@@ -76,10 +91,12 @@ a {
 
 .header img {
     width: 4rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .region-header-col-1 {
-    width: 50%;
+    width: 100%;
 }
 
 
@@ -88,7 +105,7 @@ a {
 */
 .outer-wrap-navbar {
     max-width: 100%;
-    min-height: 1em;
+    min-height: 1rem;
     background-color: #1565c0;
     color: #fff;
     padding: 0;
@@ -98,11 +115,13 @@ a {
     color: #fff;
     text-decoration: none;
     padding-right: 2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-.outer-wrap-navbar a:hover {
+.outer-wrap-navbar li a:hover {
     color: #ddd;
+    text-decoration: none;
 }
 
 .rm-navbar li {
@@ -138,12 +157,187 @@ h1 {
 }
 
 
-
 /**
 * Table
 */
 td {
     padding: 0.5rem 1rem;
+}
+
+
+/**
+* Tags
+*/
+.tag,
+.tag a:visited {
+    display: inline-block;
+    background-color: #b3e5fc;
+    color: #1565c0;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.tag:hover {
+    background-color: #64b5f6;
+}
+
+.tag.solid:hover {
+    background-color: #b3e5fc;
+}
+
+
+/**
+* Card question
+*/
+.card-question,
+.card-answer {
+    clear: both;
+    overflow: auto;
+    border: 1px solid #aaa;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+.card-user {
+    float: left;
+    width: 20%;
+    text-align:center;
+}
+
+.card-user p,
+.card-message p,
+.card-comment p {
+    margin: 0.5rem;
+}
+
+.card-message {
+    float: right;
+    width: 80%;
+    height: 100%;
+
+}
+
+.card-message .card-message-date {
+    text-align: right;
+    padding-right: 1rem;
+    background-color: #ddd;
+}
+
+.card-message .card-message-body {
+    padding: 1rem;
+}
+
+.card-comment {
+    float: right;
+    clear: both;
+    width: 70%;
+    margin-bottom: 1rem;
+    background-color: #eee;
+    font-size: 0.8rem;
+}
+
+.card-comment table td {
+    padding: 0;
+}
+
+.card-comment .comment-col-1 {
+    width: 50%;
+}
+
+.card-comment .comment-col-2 {
+    width: 10%;
+    font-weight: bold;
+}
+
+.card-comment .comment-col-3 {
+    width: 40%;
+    color: #666;
+}
+
+.card-comment-add {
+    float: right;
+    text-decoration: none;
+}
+
+
+/**
+* Card user profile
+*/
+.card-user-profile p {
+    margin: 0;
+}
+
+.card-user-profile .part-1 {
+    float: left;
+    width: 20%;
+}
+
+
+.card-user-profile .part-2,
+.card-user-profile .part-3 {
+    float: left;
+    width: 40%;
+}
+
+
+/**
+* User profile tables
+*/
+.user-tables {
+    clear: both;
+    padding-top: 3rem;
+}
+
+.user-tables .user-questions,
+.user-tables .user-answers {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.user-tables .user-questions th,
+.user-tables .user-answers th {
+    background-color: #eee;
+}
+
+.user-tables .table-date {
+    width: 30%;
+}
+
+
+
+/**
+* Buttons
+*/
+.button-div {
+    margin: 1rem auto;
+    height: 100%;
+    overflow: auto;
+}
+
+.green-button {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.button-div a:hover {
+    background-color: #2e7d32;
+    color: #fff;
+}
+
+.button-div a:visited {
+    color: #fff;
 }
 
 

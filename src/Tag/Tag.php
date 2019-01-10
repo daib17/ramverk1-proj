@@ -1,6 +1,6 @@
 <?php
 
-namespace daib17\Tags;
+namespace daib17\Tag;
 
 use Anax\DatabaseActiveRecord\ActiveRecordModel;
 

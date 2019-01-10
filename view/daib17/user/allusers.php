@@ -24,15 +24,17 @@ $items = isset($items) ? $items : null;
         <th>Name</th>
         <th>Email</th>
         <th>Created</th>
+        <th>Posts</th>
         <th>Gravatar</th>
     </tr>
     <?php foreach ($items as $item) : ?>
-        <tr>
+        <tr style="border-top: 1px solid black">
             <td><?= $item->id ?></td>
-            <td><?= $item->acronym ?></td>
+            <td><a href="<?= url("user/view/$item->id") ?>"><?= $item->acronym ?></a></td>
             <td><?= $item->name ?></td>
             <td><?= $item->email ?></td>
             <td><?= $item->created ?></td>
+            <td><?= $item->posts ?></td>
             <td><img src="<?= $item->gravatar ?>" alt="gravatar"></td>
         </tr>
     <?php endforeach; ?>

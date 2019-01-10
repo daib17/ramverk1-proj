@@ -35,14 +35,14 @@ class Comment extends ActiveRecordModel
 
 
     /**
-    * Get user.
+    * Get user that created this comment.
     *
     * @return User
     */
     public function getUser() {
         $user = new User();
         $user->setDb($this->db);
-        $res =  $user->findAllWhere("id = ?", $this->userid);
-        return (count($res) > 0) ? $res[0] : null;
+        $user->find("id", $this->userid);
+        return $user;
     }
 }

@@ -29,7 +29,7 @@ class LoginForm extends FormModel
         $this->form->create(
             [
                 "id" => __CLASS__,
-                "legend" => "User Login"
+                "legend" => "Enter details"
             ],
             [
                 "user" => [
