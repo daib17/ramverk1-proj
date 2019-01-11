@@ -39,8 +39,11 @@ class Tag extends ActiveRecordModel
                         ->select("Tag.name, Question.id, Question.title")
                         ->from("Tag")
                         ->join("Question", "Tag.questionid = Question.id")
+                        ->orderBy("Tag.name")
                         ->execute()
                         ->fetchAll();
+
+        $tagArr = [];
 
         foreach ($res as $key => $value) {
             $tagArr[$value->name][] = [
@@ -70,7 +73,6 @@ class Tag extends ActiveRecordModel
                         ->limit($limit)
                         ->execute()
                         ->fetchAll();
-
         return $res;
     }
 }

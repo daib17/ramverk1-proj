@@ -33,7 +33,7 @@ $items = isset($items) ? $items : null;
             <td><a href="<?= url("user/view/$item->id") ?>"><?= $item->acronym ?></a></td>
             <td><?= $item->name ?></td>
             <td><?= $item->email ?></td>
-            <td><?= $item->created ?></td>
+            <td><?= date("d-m-Y H:m:s", strtotime($item->created)) ?></td>
             <td><?= $item->posts ?></td>
             <td><img src="<?= $item->gravatar ?>" alt="gravatar"></td>
         </tr>

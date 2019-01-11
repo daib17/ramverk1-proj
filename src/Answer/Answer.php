@@ -60,16 +60,16 @@ class Answer extends ActiveRecordModel
     }
 
 
-    // /**
-    // * Get questionid for answer with given answerid.
-    // *
-    // * @param int $id answerid
-    // *
-    // * @return int questionid
-    // */
-    // public function getQuestionId($id)
-    // {
-    //     $res = $this->findAllWhere("answerid = ?", $id);
-    //     return (count($res) > 0) ? $res[0]->questionid : "";
-    // }
+    /**
+    * Get questionid for an answer with given answerid.
+    *
+    * @param int $answerid 
+    *
+    * @return int questionid
+    */
+    public function getQuestionId($answerid)
+    {
+        $res = $this->findAllWhere("id = ?", $answerid);
+        return (count($res) > 0) ? $res[0]->questionid : "";
+    }
 }

@@ -9,7 +9,7 @@ CREATE TABLE User (
     `email` VARCHAR(256) NOT NULL,
     `password` VARCHAR(256) NOT NULL,
     `gravatar` VARCHAR(256),
-    `posts` INTEGER DEFAULT 0,
+    `posts` INTEGER NOT NULL DEFAULT 0,
     `created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE INNODB CHARACTER SET utf8 COLLATE utf8_swedish_ci;
 

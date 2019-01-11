@@ -41,10 +41,6 @@ input {
     padding: 0.5rem;
 }
 
-output {
-    color: green;
-}
-
 .wrap-all {
     font-family: 'Montserrat', sans-serif;
 }
@@ -63,6 +59,10 @@ output {
     margin: 0 auto;
     max-width: 960px;
     padding: 0 0.5em;
+}
+
+.inner-wrap-main {
+    margin: 1rem auto;
 }
 
 .clearfix {
@@ -202,8 +202,8 @@ td {
 .home-div th {
     width: 100%;
     padding: 0.5rem 1rem;
-    background-color: #546e7a;
-    color: #eee;
+    background-color: #cfd8dc;
+    color: #37474f;
 }
 
 
@@ -262,7 +262,8 @@ td {
 .card-message .card-message-date {
     text-align: right;
     padding-right: 1rem;
-    background-color: #ddd;
+    background-color: #cfd8dc;
+    color: #37474f;
 }
 
 .card-message .card-message-body {
@@ -274,7 +275,7 @@ td {
     clear: both;
     width: 70%;
     margin-bottom: 1rem;
-    background-color: #eee;
+    background-color: #eceff1;
     font-size: 0.8rem;
 }
 
@@ -331,16 +332,18 @@ td {
 }
 
 .user-tables .user-questions,
-.user-tables .user-answers {
+.user-tables .user-answers,
+.user-tables .user-comments {
     border: 1px solid #bbb;
     width: 100%;
     margin-bottom: 3rem;
 }
 
 .user-tables .user-questions th,
-.user-tables .user-answers th {
-    background-color: #546e7a;
-    color: #fff;
+.user-tables .user-answers th,
+.user-tables .user-comments th {
+    background-color: #cfd8dc;
+    color: #37474f;
 }
 
 .user-tables .table-date {
@@ -362,8 +365,9 @@ td {
     background-color: #43a047;
     color: #fff;
     font-weight: bold;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     border-radius: 6px;
+    font-size: 0.8rem;
 }
 
 .right {

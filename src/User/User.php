@@ -78,10 +78,10 @@ class User extends ActiveRecordModel
     /**
     * Generate acronym with first 4 characters from name + index.
     */
-    public function setAcronym()
+    public function setAcronym($name)
     {
         $i = 1;
-        $base = strtolower(substr($this->name, 0, 4));
+        $base = strtolower(substr($name, 0, 4));
         $acronym = $base . $i;
         $res = $this->findAllWhere("acronym = ?", $acronym);
         if (count($res) > 0) {

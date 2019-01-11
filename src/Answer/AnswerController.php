@@ -42,7 +42,6 @@ class AnswerController implements ContainerInjectableInterface
         // Check if user logged in
         if (!$this->session->get("userid")) {
             $this->response->redirect("")->send();
-            exit;
         }
 
         $page = $this->di->get("page");

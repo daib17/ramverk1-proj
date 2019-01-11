@@ -84,9 +84,6 @@ class AddAnswerForm extends FormModel
     */
     public function callbackSubmit()
     {
-        // Get values from the submitted form
-        $body = $this->form->value("body");
-
         // Save question to database
         $answer = new Answer();
         $answer->setDb($this->di->get("dbqb"));

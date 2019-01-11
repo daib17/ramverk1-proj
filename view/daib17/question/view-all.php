@@ -38,7 +38,7 @@ $items = isset($items) ? $items : null;
             <td><?= $item->id ?></td>
             <td><a href=<?= url("question/read/$item->id") ?>><?= $item->title ?></a></td>
             <td><?= $user->getAcronymById($item->userid) ?></td>
-            <td><?= $item->created ?></td>
+            <td><?= date("d-m-Y H:m:s", strtotime($item->created)) ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

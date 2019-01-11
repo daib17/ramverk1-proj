@@ -7,6 +7,7 @@ use Anax\Commons\ContainerInjectableTrait;
 use daib17\User\User;
 use daib17\Question\Question;
 use daib17\Answer\Answer;
+use daib17\Comment\Comment;
 use daib17\User\HTMLForm\LoginForm;
 use daib17\User\HTMLForm\RegisterForm;
 use daib17\User\HTMLForm\UpdateForm;
@@ -79,12 +80,16 @@ class UserController implements ContainerInjectableInterface
         // Get answers
         $answer = new Answer();
         $answer->setDb($this->di->get("dbqb"));
-        $answerArr = $answer->findAllWhere("userid = ?", $id);
+
+        // Get answers
+        $comment = new Comment();
+        $comment->setDb($this->di->get("dbqb"));
 
         $page->add("daib17/user/view", [
             "user" => $user,
             "question" => $question,
-            "answers" => $answerArr
+            "answer" => $answer,
+            "comment" => $comment
         ]);
 
         return $page->render([

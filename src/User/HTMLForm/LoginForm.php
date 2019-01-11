@@ -72,7 +72,7 @@ class LoginForm extends FormModel
 
         if (!$res) {
             $this->form->rememberValues();
-            $this->form->addOutput("User and/or are not valid.");
+            $this->form->addOutput("User and/or password are not valid.");
             return false;
         }
 

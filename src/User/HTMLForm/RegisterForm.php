@@ -91,11 +91,12 @@ class RegisterForm extends FormModel
         // Save to database
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
+        $user->setAcronym($name);
         $user->name = $name;
         $user->email = $email;
-        $user->setGravatar();
-        $user->setAcronym();
         $user->setPassword($password);
+        $user->setGravatar();
+        $user->posts = 0;
         $user->save();
 
         // $this->form->addOutput("User was created");

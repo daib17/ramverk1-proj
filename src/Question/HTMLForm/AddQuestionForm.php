@@ -66,22 +66,20 @@ class AddQuestionForm extends FormModel
     public function callbackSubmit()
     {
         // Get values from the submitted form
-        $title = $this->form->value("title");
-        $body = $this->form->value("body");
         $tags = $this->form->value("tags");
-        $tags = trim(strtolower($tags));
+        $tags = strtolower(preg_replace('/\s+/', '', $tags));
 
         // Save question to database
         $question = new Question();
         $question->setDb($this->di->get("dbqb"));
-        $question->title = $title;
+        $question->title = $this->form->value("title");
         $question->body = $this->form->value("body");
         $question->tags = $tags;
         $question->userid = $this->userid;
         $question->save();
 
         // Save tags to database
-        $tagArr = explode(",", trim($tags));
+        $tagArr = explode(",", $tags);
 
         foreach ($tagArr as $aTag) {
             if (strlen($aTag) > 0) {

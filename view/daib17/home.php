@@ -27,7 +27,9 @@ $session = $this->di->get("session");
                     <td><a href="<?= url("question/read/$q->id") ?>"><?= $q->title ?></a></td>
                 </tr>
             <?php endforeach; ?>
-
+            <?php if (!$questions) :?>
+                <tr><td>-</td></tr>
+            <?php endif; ?>
         </table>
     </div>
     <div class="popular-tags">
@@ -40,7 +42,9 @@ $session = $this->di->get("session");
                     <td><a href="<?= url("tag") ?>"><?= $tag->name ?></a></td>
                 </tr>
             <?php endforeach; ?>
-
+            <?php if (!$tags) :?>
+                <tr><td>-</td></tr>
+            <?php endif; ?>
         </table>
     </div>
     <div class="active-users">
@@ -55,7 +59,9 @@ $session = $this->di->get("session");
                     <td><?= $user->posts ?></td>
                 </tr>
             <?php endforeach; ?>
-
+            <?php if (!$users) :?>
+                <tr><td>-</td><td></td></tr>
+            <?php endif; ?>
         </table>
     </div>
 </div>

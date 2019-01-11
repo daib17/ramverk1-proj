@@ -23,9 +23,9 @@ return [
                 "css/style.css"
             ],
             "javascripts" => [
-            "js/main.js",
-            "https://use.fontawesome.com/e5579368c4.js"
-        ],
+                "js/main.js",
+                "https://use.fontawesome.com/e5579368c4.js"
+            ],
         ],
     ],
 

@@ -7,7 +7,13 @@ namespace Anax\View;
 
 ?>
 
-<h1>Tags</h1>
+<h1>Tag list</h1>
+
+
+<?php if (!$items) : ?>
+    <p>There are no tags in the database.</p>
+    <?php return; ?>
+<?php endif; ?>
 
 <?php foreach ($items as $key => $value) : ?>
     <div class="tag solid">

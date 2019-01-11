@@ -84,9 +84,6 @@ class AddCommentQuestionForm extends FormModel
     */
     public function callbackSubmit()
     {
-        // Get values from the submitted form
-        $body = $this->form->value("comment");
-
         // Save question to database
         $comment = new Comment();
         $comment->setDb($this->di->get("dbqb"));
