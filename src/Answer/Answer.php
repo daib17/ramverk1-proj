@@ -63,13 +63,13 @@ class Answer extends ActiveRecordModel
     /**
     * Get questionid for an answer with given answerid.
     *
-    * @param int $answerid 
+    * @param int $answerid
     *
     * @return int questionid
     */
     public function getQuestionId($answerid)
     {
         $res = $this->findAllWhere("id = ?", $answerid);
-        return (count($res) > 0) ? $res[0]->questionid : "";
+        return (count($res) > 0) ? $res[0]->questionid : 0;
     }
 }
