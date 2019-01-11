@@ -103,4 +103,25 @@ class Question extends ActiveRecordModel
         return (count($res) > 0) ? $res[0] : null;
 
     }
+
+
+    /**
+    * Get latest questions.
+    *
+    * @param int $limit amount of items
+    *
+    * @return Question array
+    */
+    public function getLatest($limit = 5)
+    {
+        $res = $this->db->connect()
+                        ->select()
+                        ->from("Question")
+                        ->orderBy("created DESC")
+                        ->limit($limit)
+                        ->execute()
+                        ->fetchAll();
+
+        return $res;
+    }
 }

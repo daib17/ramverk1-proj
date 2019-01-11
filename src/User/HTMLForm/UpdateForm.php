@@ -85,7 +85,7 @@ class UpdateForm extends FormModel
         $user->name = $this->form->value("name");
         $user->email = $this->form->value("email");
         $user->save();
-        $this->form->addOutput("Details updated.");
+        $this->form->addOutput("Details have been updated");
         return true;
     }
 }

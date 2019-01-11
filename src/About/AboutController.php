@@ -16,21 +16,6 @@ class AboutController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
-    /**
-    * @var $session session
-    */
-    private $session;
-
-
-    /**
-    * Initialize variables.
-    */
-    public function initialize() : void
-    {
-        $this->session = $this->di->get("session");
-    }
-
-
 
     /**
     * About page.

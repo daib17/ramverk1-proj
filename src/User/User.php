@@ -120,4 +120,25 @@ class User extends ActiveRecordModel
         $res = $this->findAllWhere("id = ?", $id);
         return (count($res) > 0) ? $res[0]->acronym : "";
     }
+
+
+    /**
+    * Get more active users.
+    *
+    * @param int $limit amount of items
+    *
+    * @return User array
+    */
+    public function getMoreActive($limit = 5)
+    {
+        $res = $this->db->connect()
+                        ->select()
+                        ->from("User")
+                        ->orderBy("posts DESC")
+                        ->limit($limit)
+                        ->execute()
+                        ->fetchAll();
+
+        return $res;
+    }
 }

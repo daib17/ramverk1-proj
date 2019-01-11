@@ -51,4 +51,26 @@ class Tag extends ActiveRecordModel
 
         return $tagArr;
     }
+
+
+    /**
+    * Get popular tags.
+    *
+    * @param int $limit amount of items
+    *
+    * @return Tag array
+    */
+    public function getPopular($limit = 5)
+    {
+        $res = $this->db->connect()
+                        ->select("COUNT(id) AS sum, name")
+                        ->from("Tag")
+                        ->groupby("name")
+                        ->orderBy("sum DESC")
+                        ->limit($limit)
+                        ->execute()
+                        ->fetchAll();
+
+        return $res;
+    }
 }
