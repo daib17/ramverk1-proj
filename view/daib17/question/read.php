@@ -47,7 +47,7 @@ $tagArr = $question->getTags();
         <p><?= date("d-m-Y", strtotime($user->created)) ?></p>
     </div>
     <div class="card-message">
-        <p class="card-message-date"><?= date("d-m-Y H:m:s", strtotime($question->created)) ?></p>
+        <p class="card-message-date"><?= date("d-m-Y H:i:s", strtotime($question->created)) ?></p>
         <div class="card-message-body">
             <?= $filter->parse($question->body, ["markdown"])->text ?>
         </div>
@@ -66,7 +66,7 @@ $tagArr = $question->getTags();
                     <p><?= $com->getUser()->acronym ?></p>
                 </td>
                 <td class="comment-col-3">
-                    <p><?= date("d-m-Y H:m:s", strtotime($com->created)) ?></p>
+                    <p><?= date("d-m-Y H:i:s", strtotime($com->created)) ?></p>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -88,7 +88,7 @@ $tagArr = $question->getTags();
             <p><?= date("d-m-Y", strtotime($ansUser->created)) ?></p>
         </div>
         <div class="card-message">
-            <p class="card-message-date"><?= date("d-m-Y H:m:s", strtotime($answer->created)) ?></p>
+            <p class="card-message-date"><?= date("d-m-Y H:i:s", strtotime($answer->created)) ?></p>
             <div class="card-message-body">
                 <?= $filter->parse($answer->body, ["markdown"])->text ?>
             </div>
@@ -107,7 +107,7 @@ $tagArr = $question->getTags();
                         <p><?= $com->getUser()->acronym ?></p>
                     </td>
                     <td class="comment-col-3">
-                        <p><?= date("d-m-Y H:m:s", strtotime($com->created)) ?></p>
+                        <p><?= date("d-m-Y H:i:s", strtotime($com->created)) ?></p>
                     </td>
                 </tr>
             <?php endforeach; ?>

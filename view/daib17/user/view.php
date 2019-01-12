@@ -46,7 +46,7 @@ $commentArr = $comment->findAllWhere("userid = ?", $user->id);
             <?php foreach ($questionArr as $q) :?>
                 <tr>
                     <td><a href="<?= url("question/read/$q->id") ?>"><?= $q->title ?></a></td>
-                    <td class="table-date"><?= date("d-m-Y H:m:s", strtotime($q->created)) ?></td>
+                    <td class="table-date"><?= date("d-m-Y H:i:s", strtotime($q->created)) ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php else :?>
@@ -63,7 +63,7 @@ $commentArr = $comment->findAllWhere("userid = ?", $user->id);
             <?php foreach ($answerArr as $ans) :?>
                 <tr>
                     <td><a href="<?= url("question/read/$ans->questionid") ?>"><?= $question->getQuestionById($ans->questionid)->title ?></a></td>
-                    <td class="table-date"><?= date("d-m-Y H:m:s", strtotime($ans->created)) ?></td>
+                    <td class="table-date"><?= date("d-m-Y H:i:s", strtotime($ans->created)) ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php else :?>
@@ -86,7 +86,7 @@ $commentArr = $comment->findAllWhere("userid = ?", $user->id);
                 ?>
                 <tr>
                     <td><a href="<?= url("question/read/$questionid") ?>"><?= $title ?></a></td>
-                    <td class="table-date"><?= date("d-m-Y H:m:s", strtotime($com->created)) ?></td>
+                    <td class="table-date"><?= date("d-m-Y H:i:s", strtotime($com->created)) ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php else :?>
